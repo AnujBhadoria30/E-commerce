@@ -5,15 +5,10 @@ const ShopingSchema = new mongoose.Schema({
     email: String,
     password: String,
 });
-const imageSchema = new mongoose.Schema({
-    imageUrls: {
-      type: [String], // Array of image URLs
-      required: true,
-    },
-});
+
   
-const Image = mongoose.model('Image', imageSchema);
-module.exports = Image;
+
+
 //yeh jo Shoping h wo collection ka naam h aur jb  hum Database pr manually DB banate h tb db ka naam kuch bhi d do magr collection ka naam aap  yeh jo {Shoping} h yhi dena h bss yaad rhe last m s lagana h {Shopings}
 
 const Shoppingmodel = mongoose.model('Shoping', ShopingSchema);

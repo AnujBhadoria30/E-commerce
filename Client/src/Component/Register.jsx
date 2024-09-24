@@ -8,7 +8,7 @@ function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(''); // State to manage error message
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
 
@@ -16,17 +16,17 @@ function Register() {
         e.preventDefault();
 
         if (!name || !email || !password) {
-            setError('All fields are required'); // Set error message
+            setError('All fields are required'); 
             return;
         }
 
-        // If validation passes, clear any existing error and proceed with API call
+
         setError('');
 
         const Data = { name, email, password };
         try {
             await axios.post('http://localhost:5000/register', Data);
-            navigate('/login'); // Navigate after successful registration
+            navigate('/login'); 
         } catch (err) {
             console.error("Registration error:", err);
             setError('Registration failed. Please try again.');

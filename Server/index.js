@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-// const Product = require('./models/E-commerce');
+
 
 const app = express();
 app.use(express.json());
@@ -48,10 +48,10 @@ app.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
-        // Create new employee
+       
         const newEmployee = new Shoppingmodel({ name, email, password });
 
-        // Save to database
+      
         await newEmployee.save();
 
         res.status(200).json({ message: 'User registered successfully!' });

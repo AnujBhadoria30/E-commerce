@@ -22,16 +22,16 @@ function Login() {
 
         axios.post('http://localhost:5000/login', Data)
             .then(result => {
-                // Check if login was successful
+               
                 if (result.data === "Success") {
-                    navigate('/home');  // Navigate to Home on success
+                    navigate('/home');  
                 } else {
                     setError('Invalid email or password');
                 }
             })
             .catch(err => {
                 if (err.response) {
-                    // Show error message from backend
+                
                     setError(err.response.data.message);
                 } else {
                     console.error(err);

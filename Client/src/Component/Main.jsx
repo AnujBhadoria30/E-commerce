@@ -2,9 +2,9 @@ import React from 'react'
 
 function Main() {
   return (
-   <div>
-      
-    </div>
+<>
+<div className="bg-gradient-to-r from-blue-800 to-gray-900">Home</div>
+</>
   )
 }
 
