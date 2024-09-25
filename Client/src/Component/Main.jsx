@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
-import { useDispatch } from "react-redux";
-import { addItem } from '../utils/cardSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, setItems } from '../utils/cardSlice';
+
 const Main = () => {
-
-
-  const [items, setItems] = useState([]);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  
+  // Redux store se items ko select karna
+  const items = useSelector((state) => state.card.item);
 
   // Fetch API data using Axios
   useEffect(() => {
@@ -15,20 +16,19 @@ const Main = () => {
       try {
         const response = await axios.get('https://66f3b86877b5e88970968a66.mockapi.io/Ecommerce');
         console.log(response);
-        setItems(response.data); // Store the fetched data in state
+        dispatch(setItems(response.data)); // Redux store mein items set kare
       } catch (error) {
         console.error('Error fetching the items', error);
       }
     };
 
     fetchItems();
-  }, []);
+  }, [dispatch]);
 
-  const handleSubmit = (item) => {
-   
-    dispatch(addItem(item))
-
+  const handleSubmit = (items) => {
+    dispatch(addItem(items)); // Item ko add kare
   }
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Item Gallery</h1>
@@ -39,7 +39,7 @@ const Main = () => {
             <h3 className="text-lg font-semibold">🙋‍♂️{item.name}</h3>
             <p className="text-gray-600 mb-2">{item.Dis}</p>
             <p className="text-blue-500 font-bold">Price: 💸{item.Price}</p>
-            <button className="border-2 rounded-full shadow-2xl p-2  " onClick={handleSubmit}>+</button>
+            <button className="border-2 rounded-full shadow-2xl p-2" onClick={() => handleSubmit(items)}>+</button>
           </div>
         ))}
       </div>

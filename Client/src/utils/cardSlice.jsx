@@ -11,8 +11,11 @@ const cardSlice =createSlice({
         addItem:(state,action)=>{
             state.item=action.payload
             state.itemCount += 1; 
+        },
+        setItems: (state, action) => {
+            state.item = action.payload; // Yahan API se aaye items ko set karega
         }
     }
     })
-    export const {addItem} = cardSlice.actions;
+    export const {addItem,setItems} = cardSlice.actions;
     export default cardSlice.reducer
