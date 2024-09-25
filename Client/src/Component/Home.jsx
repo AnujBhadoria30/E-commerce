@@ -5,11 +5,8 @@ import Main from './Main'
 
 function Home() {
   return (
-    <div>
-     
+    <div className='bg-blue-200'>
        <Main/>
-
-      
     </div>
   )
 }
