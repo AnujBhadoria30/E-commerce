@@ -7,7 +7,6 @@ const cardSlice =createSlice({
         itemCount:0
         
     },
-
     reducers:{
         addItem:(state,action)=>{
             state.item=action.payload
@@ -15,6 +14,5 @@ const cardSlice =createSlice({
         }
     }
     })
-
     export const {addItem} = cardSlice.actions;
     export default cardSlice.reducer
