@@ -13,7 +13,7 @@ const cardSlice =createSlice({
             state.itemCount += 1; 
         },
         setItems: (state, action) => {
-            state.item = action.payload; // Yahan API se aaye items ko set karega
+            state.item = action.payload; 
         }
     }
     })

@@ -84,7 +84,7 @@ function Register() {
                         type='submit'
                         className='w-full bg-blue-600 text-white py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300 shadow-lg'
                     >
-                        Register
+                        ✍️Register
                     </button>
                 </form>
                 <div className="mt-4 text-center">
@@ -93,7 +93,7 @@ function Register() {
             to="/login"
             className="inline-block mt-2 px-4 py-2 bg-green-500 text-white rounded-md shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
-            Login
+            😎Login
           </Link>
         </div>
             </div>

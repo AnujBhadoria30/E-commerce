@@ -12,7 +12,7 @@ function Navbar() {
           <span className="text-white font-bold text-2xl">ShopEase</span>
         </div>
 
-        {/* Navigation Links */}
+      
         <div className="hidden sm:flex justify-center items-center">
           <ul className="flex space-x-10 text-white font-semibold">
             <Link to="/home" className="hover:text-yellow-400 transition duration-300 ease-in-out cursor-pointer">Home</Link>
@@ -22,7 +22,7 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* CTA Section */}
+       
         <div className="hidden sm:flex items-center">
           <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out">
           Card ({itemCount}) 

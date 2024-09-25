@@ -2,27 +2,36 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import Login from './Component/Login'
-import { BrowserRouter, Routes, Route } from "react-router-dom"; 
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from './Component/Register';
 import Home from './Component/Home';
 import About from './Component/About';
-import Navbar from './Component/Navbar';
+// import Navbar from './Component/Navbar';
 import appStore from './utils/appStore';
+
 import { Provider } from "react-redux";
+import PrivateRoute from './Component/PrivateRoute';
 function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   return (
     <>
       <Provider store={appStore}>
-        
-    <BrowserRouter>
-    <Navbar/>
-    <Routes> 
-      <Route path="/home" element={<Home/>}  />
-      <Route path="/about" element={<About/>}  />
-      <Route path='/login' element={<Login/>} />
-      <Route path="/register" element={<Register/>}  />
-    </Routes>
-    </BrowserRouter>
+
+        <BrowserRouter>
+      
+          <Routes>
+            <Route path="/home" element={<PrivateRoute isAuthenticated={isAuthenticated}>
+              <Home />
+            </PrivateRoute>} />
+            <Route path="/about" element={<PrivateRoute isAuthenticated={isAuthenticated}>
+              <About />
+            </PrivateRoute>} /> 
+            <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
       </Provider>
     </>
   )
